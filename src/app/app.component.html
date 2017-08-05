@@ -1,5 +1,4 @@
-<br>
-<div class="container">
+<div class="container-fluid">
   <form novalidate [formGroup]="signUpForm" (submit)="submitForm($event);">
     <div class="form-group">
       <label>User Name</label>
@@ -32,9 +31,7 @@
       <div class="form-group" *ngFor="let contact of contacts.controls; let i = index">
         <div class="row">
           <div class="col-md-3">
-            <select class="form-control" [formControl]="contact.controls['type']">
-              <option *ngFor="let opt of contactTypes" [value]="opt.value">{{opt.title}}</option>
-            </select>
+            <custom-select [options]="contactTypes" [formControl]="contact.controls['type']"></custom-select>
           </div>
           <div class="col-md-8">
             <input type="text" class="form-control" [formControl]="contact.controls['value']">
